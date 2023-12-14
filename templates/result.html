@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Qualification Result</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="navbar">
+        <h1>Qualification Result</h1>
+    </div>
+    <div class="container">
+        {% if not_qualified %}
+            <p>You did not qualify for any programs.</p>
+        {% else %}
+            <p>Congratulations! You qualify for the following programs:</p>
+            <ul>
+                {% for program in qualified_programs %}
+                    <li>{{ program }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+        <p>Predicted Cut-Off Points: {{ prediction }}</p>
+        <a href="{{ url_for('index') }}">Go Back</a>
+
+    </div>
+    
+</body>
+</html>
